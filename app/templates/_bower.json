@@ -1,0 +1,9 @@
+{
+  "name": "package",
+  "version": "0.0.0",
+  "dependencies": {<% if(htmlConf.needAnimateCss){ %>
+    "animate.css": "~3.2.0",<% } %>
+    "zepto": "~1.1.6",
+    "swiper": "~3.0.5"
+  }
+}
