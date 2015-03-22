@@ -39,6 +39,7 @@ var <%= htmlConf.appName %>Module = (function (global) {
     var loadedImages = 0;
     var numImages = 0;
     var errorImages = 0;
+    var CONST_INT_ONE = 1;
 
     for (var src in resources) {
       numImages++;
@@ -50,18 +51,20 @@ var <%= htmlConf.appName %>Module = (function (global) {
     }
 
     for (var tsrc in resources) {
-      images[src] = new Image();
-      images[src].onload = function () {
+      images[tsrc] = new Image();
+      images[tsrc].onload = function () {
         if (++loadedImages >= numImages) {
           successCallback && successCallback(images);
         }
       };
-      images[src].onerror = function () {
-        if (++errorImages === 1) {
+
+      images[tsrc].onerror = function () {
+        if (++errorImages >= CONST_INT_ONE) {
           errorCallback && errorCallback();
         }
       };
-      images[src].src = resources[src];
+
+      images[tsrc].src = resources[tsrc];
     }
   }
 
@@ -174,6 +177,7 @@ var <%= htmlConf.appName %>Module = (function (global) {
         effect: 'slide',
         swipeToNext: false,
         simulateTouch: true,
+        mousewheelControl: true,
         onInit: function (swiper) {
           setTimeout(function () {
             self.playPageAnimate(1);
@@ -192,9 +196,10 @@ var <%= htmlConf.appName %>Module = (function (global) {
     // 执行单页动画
     playPageAnimate: function (page, context) {
       var animateQueueList = this.conf.animateQueueList;
-      var pageAnimateList = [];
+      var pageAnimateList = [], animateListCopy = [];
       if (animateQueueList && animateQueueList.length > 0) {
-        pageAnimateList = animateQueueList[page];
+        animateListCopy = animateQueueList[page - 1];
+        pageAnimateList = animateListCopy.slice(0);
         this['page' + page + 'AnimateQueue'] = new Queue(pageAnimateList);
         this['page' + page + 'AnimateQueue'].queueAll();
       }

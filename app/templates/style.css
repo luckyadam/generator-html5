@@ -100,3 +100,44 @@ body {
   width: 100%;
   height: 100%;
 }
+
+/**************** your custom styles are here *******************/
+.sample_img1 {
+  display: block;
+  position: absolute;
+  width: 135px;
+  height: 180px;
+  top : 20px;
+  left: 50%;
+  margin-left: -68px;
+}
+
+.sample_img2 {
+  display: block;
+  position: absolute;
+  width: 177px;
+  height: 262px;
+  bottom: 30px;
+  left: 50%;
+  margin-left: -89px;
+}
+
+.sample_img3 {
+  display: block;
+  position: absolute;
+  width: 214px;
+  height: 320px;
+  top : 20px;
+  left: 50%;
+  margin-left: -107px;
+}
+
+.sample_img4 {
+  display: block;
+  position: absolute;
+  width: 98px;
+  height: 148px;
+  bottom: 30px;
+  left: 50%;
+  margin-left: -49px;
+}

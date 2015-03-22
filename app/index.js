@@ -47,11 +47,11 @@ module.exports = yeoman.generators.Base.extend({
       message: '需要使用animate.css么，据说挺好用的哦~',
       store: false,
       choices: [{
-        name: '呵呵，我这么吊，还需要这种东西？',
-        value: false
-      }, {
         name: '恩，是不错，来一发吧~',
         value: true
+      }, {
+        name: '呵呵，我这么吊，还需要这种东西？',
+        value: false
       }]
     }];
 
@@ -90,9 +90,11 @@ module.exports = yeoman.generators.Base.extend({
       this.mkdir('app/scripts');
       this.mkdir('app/styles');
       this.mkdir('app/images');
+
       this.copy('base.js', 'app/scripts/base.js');
       this.copy('index.js', 'app/scripts/index.js');
       this.copy('style.css', 'app/styles/style.css');
+      this.directory('images', 'app/images');
     }
   },
   install: function () {
@@ -112,6 +114,6 @@ module.exports = yeoman.generators.Base.extend({
         ignorePath: /^(\.\.\/)*\.\./,
         src: 'app/index.html'
       });
-    });
+    }.bind(this));
   }
 });
