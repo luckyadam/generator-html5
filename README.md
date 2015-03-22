@@ -11,7 +11,7 @@
 
 ## 安装
 
-首先需要通过如下命令安装[yeoman](http://yeoman.io/)和bower，推荐使用node版本管理工具[nvm](https://github.com/creationix/nvm)或[n](https://github.com/tj/n)，这样不仅可以很方便地切换node版本，而且安装时候也不用加``sudo``了。
+首先需要通过如下命令安装[yeoman](http://yeoman.io/)和bower，推荐使用node版本管理工具[nvm](https://github.com/creationix/nvm)或[n](https://github.com/tj/n)，这样不仅可以很方便地切换node版本，而且全局安装时候也不用加``sudo``了。
 
 ```bash
 [sudo] npm install -g yo bower
