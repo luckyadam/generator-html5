@@ -48,7 +48,7 @@ gulp.task('extras', function () {
 
 gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
 
-gulp.task('serve', ['styles'], function () {
+gulp.task('serve', ['styles', 'wiredep'], function () {
   browserSync({
     notify: false,
     port: 9000,
@@ -85,13 +85,12 @@ gulp.task('wiredep', function () {
   var wiredep = require('wiredep').stream;
   gulp.src('app/*.html')
     .pipe(wiredep({
-      exclude: [],
       ignorePath: /^(\.\.\/)*\.\./
     }))
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['html', 'images', 'extras'], function () {
+gulp.task('build', ['wiredep', 'html', 'images', 'extras'], function () {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
