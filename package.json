@@ -1,6 +1,6 @@
 {
   "name": "generator-html5",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "移动web动画页面生成器",
   "main": "index.js",
   "scripts": {

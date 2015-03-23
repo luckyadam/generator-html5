@@ -57,7 +57,6 @@ module.exports = yeoman.generators.Base.extend({
 
     this.prompt(prompts, function(anwsers) {
       this.htmlConf = anwsers;
-      // console.log(anwsers);
       this.htmlConf.date = ((new Date()).getFullYear()) + '-' + ((new Date()).getMonth() + 1) + '-' + ((new Date()).getDate());
       this.htmlConf.appClassName = this._.classify(this.htmlConf.appName);
       this.htmlConf.appName = _.decapitalize(this.htmlConf.appClassName);
@@ -65,6 +64,7 @@ module.exports = yeoman.generators.Base.extend({
     }.bind(this));
   },
   writing: {
+    // 一些依赖的配置
     config: function () {
       this.template('_package.json', 'package.json');
       this.template('_bower.json', 'bower.json');
@@ -91,9 +91,12 @@ module.exports = yeoman.generators.Base.extend({
       this.mkdir('app/styles');
       this.mkdir('app/images');
 
+      // 拷贝文件
       this.copy('base.js', 'app/scripts/base.js');
       this.copy('index.js', 'app/scripts/index.js');
       this.copy('style.css', 'app/styles/style.css');
+      this.copy('favicon.ico', 'app/favicon.ico');
+      this.copy('apple-touch-icon.png', 'app/apple-touch-icon.png');
       this.directory('images', 'app/images');
     }
   },

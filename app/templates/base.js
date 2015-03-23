@@ -97,7 +97,7 @@ var <%= htmlConf.appName %>Module = (function (global) {
       this.getUsefulElements();
       this.initStyle();
       this.showLoaderProgress();
-      // 加载所有图片
+      // 加载图片资源
       loadImages(this.conf.resources, $.proxy(this.loadPage, this));
     },
 
@@ -108,11 +108,9 @@ var <%= htmlConf.appName %>Module = (function (global) {
         $swiperContainer: $('.swiper-container', $el).hide(),
         $loader: $('.loader', $el),
         $progressText: $('.loader_progress', $el),
-        // 第一页元素
-        page1Elements: $('#page1 .swiper-page', $el).children().hide(),
-        // 第二页元素
-        page2Elements: $('#page2 .swiper-page', $el).children().hide()
+        $swiperPage: $('.swiper-page', $el)
       };
+      this.$elements.$swiperPage.children().hide();
     },
 
     // 对页面进行等比缩放
@@ -128,7 +126,7 @@ var <%= htmlConf.appName %>Module = (function (global) {
         ratio = 2;
       }
       this.ratio = ratio;
-      $el.find('.swiper-page').css('zoom', ratio);
+      this.$elements.$swiperPage.css('zoom', ratio);
     },
 
     // 加载页面
@@ -183,9 +181,6 @@ var <%= htmlConf.appName %>Module = (function (global) {
             self.playPageAnimate(1);
           }, 800);
         },
-        onSlideChangeStart: function (swiper) {
-          self.hidePageElements(swiper.activeIndex + 1);
-        },
         onSlideChangeEnd: function (swiper) {
           self.hidePageElements(swiper.previousIndex + 1);
           self.playPageAnimate(swiper.activeIndex + 1);
@@ -208,7 +203,7 @@ var <%= htmlConf.appName %>Module = (function (global) {
     // 隐藏单页元素，同时清除动画队列
     hidePageElements: function (page, context) {
       var $elements = this.$elements;
-      var pageElements = $elements['page' + page + 'Elements'];
+      var pageElements = $($elements.$swiperPage[page - 1]).children();
       var animateQueue = this['page' + page + 'AnimateQueue'];
       if (typeof animateQueue === 'function') {
         animateQueue.clearQueue();
