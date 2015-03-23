@@ -181,6 +181,7 @@ var <%= htmlConf.appName %>Module = (function (global) {
             self.playPageAnimate(1);
           }, 800);
         },
+
         onSlideChangeEnd: function (swiper) {
           self.hidePageElements(swiper.previousIndex + 1);
           self.playPageAnimate(swiper.activeIndex + 1);
