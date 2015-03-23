@@ -10,6 +10,10 @@
 * 通过[gulp](http://gulpjs.com)提供了文件编译、打包的功能
 * 能方便地使用[bower](http://bower.io)安装各种插件，并且能在页面中自动生成bower包的依赖关系
 
+## Demo Page
+
+generator-html5运行后的示例页面 [http://luckyadam.github.io/generator-html5/](http://luckyadam.github.io/generator-html5/) 
+
 ## 安装
 
 首先需要通过如下命令安装[yeoman](http://yeoman.io/)和bower，推荐使用node版本管理工具[nvm](https://github.com/creationix/nvm)或[n](https://github.com/tj/n)，这样不仅可以很方便地切换node版本，而且全局安装时候也不用加``sudo``了。
@@ -24,13 +28,13 @@
 [sudo] npm install -g generator-html5
 ```
 
-## 使用
+## 快速开始
 
 在安装完成后，执行``yo html5``来生成你的项目，请根据提示一步一步来操作，不用担心，步骤非常少。
 
 在所有文件都生成完后，会默认执行``npm install && bower install``来安装项目依赖的插件，由于依赖的插件较丰富，这一步会耗时比较长，请耐心等待一会儿。
 
-依赖安装完后你就可以通过执行``gulp serve``来预览你的项目了，脚手架工具默认给出了2页的示例，并给出了4张示例图片的展示，你可以通过滑动或滚动鼠标切换展示。
+依赖安装完后你就可以通过执行``gulp serve``来预览示例页面了，脚手架工具默认给出了2页的示例，并给出了4张示例图片的展示，你可以通过滑动或滚动鼠标切换展示。
 
 然后我们来开始开发，脚手架工具已经给出示例代码，你可以参照示例代码，按照如下步骤来开发你的项目：
 
