@@ -206,7 +206,7 @@ var <%= htmlConf.appName %>Module = (function (global) {
       var $elements = this.$elements;
       var pageElements = $($elements.$swiperPage[page - 1]).children();
       var animateQueue = this['page' + page + 'AnimateQueue'];
-      if (typeof animateQueue === 'function') {
+      if (animateQueue && ('clearQueue' in animateQueue)) {
         animateQueue.clearQueue();
       }
       pageElements.hide();
