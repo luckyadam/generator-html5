@@ -1,5 +1,6 @@
 # HTML5 Slide Webapp Generator
 [![npm version](https://badge.fury.io/js/generator-html5.svg)](http://badge.fury.io/js/generator-html5)
+[![Code Climate](https://codeclimate.com/repos/551b917869568059920055ed/badges/1030e812cad3c61e4936/gpa.svg)](https://codeclimate.com/repos/551b917869568059920055ed/feed)
 > 这是一款面HTML5推广展示webapp的快速项目生成工具，让开发者只需关心页面本身的逻辑，并且只需要写很少的的代码，就能快速完成。
 
 ## 功能
